@@ -1,0 +1,207 @@
+
+semua status
+
+Pendaftaran Siswa/Siswi - Register Student
+Pembayaran - Payment
+Dokumen - Document
+
+-- sesi pendaftaran REG001
+
+Disetujui - Approved
+Menunggu - Waiting For Confirmation
+Ditolak - Rejected
+Ajukan Perubahan Data - Ask for Revision
+Ajukan Ulang - Ask For Resubmitted
+
+
+-- sesi pembayaran PAY001
+
+Lunas - Payment Success
+Belum bayar - Outstanding
+Dibatalkan - Canceled
+
+Disetujui - Valid Payment
+Menunggu - Waiting for Confirmation
+Ditolak - Pembayaran tidak valid
+Ajukan perubahan data - Ask for revision
+
+-- sesi dokumen DOC001
+
+Disetujui - Valid Document
+Menunggu - Waiting For Confirmation
+Ditolak - Rejected Document (Invalid)
+Ajukan Perubahan Data - Ask for Revision
+Ajukan Ulang - Ask For Resubmitted
+
+-- Reject Reason
+Dokument tidak valid - Invalid Document
+Gambar tidak jelas - Blur Picture
+
+-- penambahan data
+-- perubahan data
+-- penghapusan data
+
+
+
+
+https://bbbootstrap.com/snippets/bootstrap-user-profile-statistics-36385949
+
+
+
+template bootstrap
+
+format id untuk setiap section
+
+========================================================================
+
+[Entry Point admin]
+
+admin_mainForm_buttonId_daftarSiswa
+
+admin_mainForm_buttonId_ubahSiswa
+
+admin_mainForm_buttonId_konfirmasiPembayaran
+
+admin_mainForm_buttonId_ubahPembayaran
+
+admin_mainForm_buttonId_riwayatPendaftaran
+
+admin_mainForm_buttonId_riwayatPembayaran
+
+=======================================================================
+
+[Form siswa register]
+
+---------->>>> ID only
+form id = id_adminFormRegisterSiswa
+
+id_admFormRegisSiswa_inputNamaSiswa
+
+id_admFormRegisSiswa_pilihGenderSiswa
+
+id_admFormRegisSiswa_inputAlamatSiswa
+
+================================================
+
+id_admFormRegisSiswa_inputNikBapak
+
+id_admFormRegisSiswa_inputNamaBapak
+
+id_admFormRegisSiswa_inputKontakBapak
+
+id_admFormRegisSiswa_inputAlamatBapak
+
+=====================================================
+
+id_admFormRegisSiswa_inputNikIbu
+
+id_admFormRegisSiswa_inputNamaIbu
+
+id_admFormRegisSiswa_inputKontakIbu
+
+id_admFormRegisSiswa_inputAlamatIbu
+
+=====================================================
+
+id_admFormRegisSiswa_uploadPassPhoto
+
+id_admFormRegisSiswa_uploadIjazah
+
+id_admFormRegisSiswa_uploadKk
+
+id_admFormRegisSiswa_uploadAktaKelahiran
+
+id_admFormRegisSiswa_UploadSuratPernyataan
+
+=====================================================
+
+id_admFormRegisSiswa_pilihSkemaBayar
+
+id_admFormRegisSiswa_pilihTipePembayaran
+
+id_admFormRegisSiswa_pilihNamaBank
+
+id_admFormRegisSiswa_uploadBuktiTransfer
+
+id_admFormRegisSiswa_catatanPendaftaran
+
+
+-------------->>> Name only
+name_admFormRegisSiswa_inputNamaSiswa
+
+name_admFormRegisSiswa_pilihGenderSiswa
+
+name_admFormRegisSiswa_inputAlamatSiswa
+
+=============================================
+
+name_admFormRegisSiswa_inputNikBapak
+
+name_admFormRegisSiswa_inputNamaBapak
+
+name_admFormRegisSiswa_inputKontakBapak
+
+name_admFormRegisSiswa_inputAlamatBapak
+
+===============================================
+
+name_admFormRegisSiswa_inputNikIbu
+
+name_admFormRegisSiswa_inputNamaIbu
+
+name_admFormRegisSiswa_inputKontakIbu
+
+name_admFormRegisSiswa_inputAlamatIbu
+
+================================================
+
+name_admFormRegisSiswa_uploadPassPhoto
+
+name_admFormRegisSiswa_uploadIjazah
+
+name_admFormRegisSiswa_uploadKk
+
+name_admFormRegisSiswa_uploadAktaKelahiran
+
+name_admFormRegisSiswa_UploadSuratPernyataan
+
+=================================================
+
+name_admFormRegisSiswa_pilihSkemaBayar
+
+name_admFormRegisSiswa_pilihTipePembayaran
+
+name_admFormRegisSiswa_pilihNamaBank
+
+name_admFormRegisSiswa_uploadBuktiTransfer
+
+name_admFormRegisSiswa_catatanPendaftaran
+
+
+-- ajax parameter non serialize
+
+mainFormId,
+childFormId,
+urlBackend,
+titleBefore,
+textBefore,
+iconBefore,
+confirmBtn,
+cancelBtn,
+logoAfter,
+judulAfter,
+urlFormToShow,
+showForm
+
+../../admin/siswa/siswa_register.html
+
+module register siswa OK
+
+
+
+
+id_adminMenuDashBoard
+
+
+
+

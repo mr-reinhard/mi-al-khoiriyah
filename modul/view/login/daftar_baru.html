@@ -1,0 +1,50 @@
+<script>
+    $(document).ready(function(){
+        toggleCheckbox("#mainContentLoginUser","#id_checkBox_user_formRegisterUser","#id_btnSimpanRegister_userFormRegisterUser")
+    })
+</script>
+
+
+<div class="text-center mt-4 name">
+    Daftar <br> Baru
+</div>
+
+    <form class="p-3 mt-3" method="post" id="id_formRegisterUser" autocomplete="off">
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+            <input type="text" class="form-control" name="registerUserName" id="id_inputUsername_userFormRegisterUser" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span>
+            <input type="password" class="form-control" name="passwordRegister" id="id_inputPassword_userFormRegisterUser" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" required>
+            <span class="input-group-text" id="id_spanTogglePassword_userFormRegisterUser">
+                <i class="fas fa-eye-slash" id="id_iInputPassword_userFormRegisterUser"></i>
+            </span>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="fas fa-phone"></i></span>
+            <input type="text" class="form-control" name="registerTelfon" id="id_inputTelfonUser_userFormRegisterUser" placeholder="Telfon" aria-label="Username" aria-describedby="basic-addon1" maxlength="13" required>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="id_checkBox_user_formRegisterUser">
+            <label class="form-check-label" for="id_checkBox_user_formRegisterUser">
+                Saya setuju
+            </label>
+        </div>
+
+        <button type="submit" class="btn mt-3" id="id_btnSimpanRegister_userFormRegisterUser">Daftar <i class="fas fa-share"></i></button>
+
+    </form>
+
+    <div class="text-center fs-6">
+    
+        <div id="id_btnKembali_userFormDaftarUserBaru">
+            <h6><u>Kembali</u></h6>
+        </div>
+    
+        
+    </div>

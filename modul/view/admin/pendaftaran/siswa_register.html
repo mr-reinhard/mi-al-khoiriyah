@@ -1,0 +1,295 @@
+
+<script>
+    $(document).ready(function(){
+
+        $("#idDiv_sectionBayarNonTunai").hide()
+
+        $("#idTableDiv").hide()
+
+
+        switchPembayaran("#id_adminFormRegisterSiswa","#idDiv_sectionBayarNonTunai","#id_admFormRegisSiswa_pilihTipePembayaran","#id_admFormRegisSiswa_pilihNamaBank","#id_admFormRegisSiswa_uploadBuktiTransfer");
+
+        switchSkema("#id_adminFormRegisterSiswa","#idTableDiv","#id_admFormRegisSiswa_pilihSkemaBayar","SKM1");
+
+
+        fetchDropDown("#id_admFormRegisSiswa_pilihTipePembayaran","id_tipe_bayar","tipe_bayar","-- Pilih tipe bayar --","../../controller/php/pendaftaran_controller.php?aksi=fetchTipePembayaran");
+
+            
+
+        fetchDropDown("#id_admFormRegisSiswa_pilihNamaBank","id_bank","nama_bank","-- Pilih nama bank --","../../controller/php/pendaftaran_controller.php?aksi=fetchNamaBank");
+
+
+    })
+</script>
+
+    <form method="post" id="id_adminFormRegisterSiswa" autocomplete="off" enctype="multipart/form-data">
+
+        <!-- Informasi siswa -->
+        <div class="card">
+
+                <h5 class="card-header">Siswa</h5>
+
+                <div class="card-body">
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+                        <input type="text" class="form-control" name="name_admFormRegisSiswa_inputNamaSiswa" id="id_admFormRegisSiswa_inputNamaSiswa" placeholder="Nama calon siswa" aria-label="Username" aria-describedby="basic-addon1" required>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="fas fa-venus-mars"></i></span>
+                        <select name="name_admFormRegisSiswa_pilihGenderSiswa" id="id_admFormRegisSiswa_pilihGenderSiswa" class="form-control" required>
+                            <option disabled selected>-- Pilih Gender --</option>
+                            <option value="GEN1">Laki-Laki</option>
+                            <option value="GEN2">Perempuan</option>
+                        </select>
+                    </div>
+                        
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fas fa-map-location-dot"></i></span>
+                        <textarea class="form-control" name="name_admFormRegisSiswa_inputAlamatSiswa" id="id_admFormRegisSiswa_inputAlamatSiswa" aria-label="With textarea" placeholder="Domisili" required></textarea>
+                    </div>
+
+                </div>
+
+        </div>
+        <!-- End informasi siswa -->
+
+        <!-- Informasi orangtua -->
+        <div class="card mt-2">
+        
+            <h5 class="card-header">Orangtua</h5>
+        
+            <div class="card-body">
+
+                <div class="card">
+                    <h6 class="card-header">Bapak</h6>
+                    <div class="card-body">
+
+                        <!-- Ayah -->
+                        <div class="input-group mb-3 mt-2">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-address-card"></i></span>
+                            <input type="text" class="form-control" name="name_admFormRegisSiswa_inputNikBapak" id="id_admFormRegisSiswa_inputNikBapak" maxlength="16" placeholder="NIK" aria-label="Username" aria-describedby="basic-addon1" required>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+                            <input type="text" class="form-control" name="name_admFormRegisSiswa_inputNamaBapak" id="id_admFormRegisSiswa_inputNamaBapak" placeholder="Nama" aria-label="Username" aria-describedby="basic-addon1" required>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-phone"></i></span>
+                            <input type="text" class="form-control" name="name_admFormRegisSiswa_inputKontakBapak" id="id_admFormRegisSiswa_inputKontakBapak" maxlength="14" placeholder="Telfon / Whatsapp" aria-label="Username" aria-describedby="basic-addon1" required>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text"><i class="fas fa-map-location-dot"></i></span>
+                            <textarea class="form-control" name="name_admFormRegisSiswa_inputAlamatBapak" id="id_admFormRegisSiswa_inputAlamatBapak" aria-label="With textarea" placeholder="Domisili" required></textarea>
+                        </div>
+                        <!-- Ayah -->
+                         
+                    </div>
+                </div>
+
+                <div class="card mt-3">
+                    <h6 class="card-header">Ibu</h6>
+                    <div class="card-body">
+
+                        <!-- Ibu -->
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-address-card"></i></span>
+                            <input type="text" class="form-control" name="name_admFormRegisSiswa_inputNikIbu" id="id_admFormRegisSiswa_inputNikIbu" maxlength="16" placeholder="NIK" aria-label="Username" aria-describedby="basic-addon1" required>
+                        </div>
+                        
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+                            <input type="text" class="form-control" name="name_admFormRegisSiswa_inputNamaIbu" id="id_admFormRegisSiswa_inputNamaIbu" placeholder="Nama" aria-label="Username" aria-describedby="basic-addon1" required>
+                        </div>
+                        
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-phone"></i></span>
+                            <input type="text" class="form-control" name="name_admFormRegisSiswa_inputKontakIbu" id="id_admFormRegisSiswa_inputKontakIbu" maxlength="14" placeholder="Telfon / Whatsapp" aria-label="Username" aria-describedby="basic-addon1" required>
+                        </div>
+                        
+                        <div class="input-group mb-3">
+                            <span class="input-group-text"><i class="fas fa-map-location-dot"></i></span>
+                            <textarea class="form-control" name="name_admFormRegisSiswa_inputAlamatIbu" id="id_admFormRegisSiswa_inputAlamatIbu" aria-label="With textarea" placeholder="Domisili" required></textarea>
+                        </div>
+                        <!-- Ibu -->
+
+                    </div>
+                </div>
+        
+        
+
+        
+            </div>
+        
+        </div>
+        <!-- end informasi orangtua -->
+
+        <!-- Dokumen pendukung -->
+        <div class="card mt-2">
+            <h5 class="card-header">Dokumen</h5>
+            <div class="card-body">
+
+                <!-- JPEG/JPG/PNG max 1mb -->
+                <div class="mb-3">
+                    <label for="id_admFormRegisSiswa_uploadPassPhoto" class="form-label">Pass Photo</label>
+                    <input type="file" class="form-control" name="name_admFormRegisSiswa_uploadPassPhoto" id="id_admFormRegisSiswa_uploadPassPhoto" aria-describedby="emailHelp" required>
+                    <div id="emailHelp" class="form-text">Pass photo calon siswa.</div>
+                </div>
+
+                <!-- PDF max 1mb -->
+                <div class="mb-3">
+                    <label for="id_admFormRegisSiswa_uploadIjazah" class="form-label">Ijazah</label>
+                    <input type="file" class="form-control" name="name_admFormRegisSiswa_uploadIjazah" id="id_admFormRegisSiswa_uploadIjazah" aria-describedby="emailHelp" required>
+                    <div id="emailHelp" class="form-text">Foto copy Ijazah Paud/KB/TK.</div>
+                </div>
+
+                <!-- PDF max 1mb -->
+                <div class="mb-3">
+                    <label for="id_admFormRegisSiswa_uploadKk" class="form-label">Kartu Keluarga</label>
+                    <input type="file" class="form-control" name="name_admFormRegisSiswa_uploadKk" id="id_admFormRegisSiswa_uploadKk" aria-describedby="emailHelp" required>
+                    <div id="emailHelp" class="form-text">Foto copy kartu keluarga/SK Keterangan domisili.</div>
+                </div>
+
+                <!-- PDF max 1mb -->
+                <div class="mb-3">
+                    <label for="id_admFormRegisSiswa_uploadAktaKelahiran" class="form-label">Akta Kelahiran</label>
+                    <input type="file" class="form-control" name="name_admFormRegisSiswa_uploadAktaKelahiran" id="id_admFormRegisSiswa_uploadAktaKelahiran" aria-describedby="emailHelp" required>
+                    <div id="emailHelp" class="form-text">Foto copy akta kelahiran calon siswa.</div>
+                </div>
+
+                <!-- PDF max 1mb -->
+                <div class="mb-3">
+                    <label for="id_admFormRegisSiswa_UploadSuratPernyataan" class="form-label">Surat Pernyataan</label>
+                    <input type="file" class="form-control" name="name_admFormRegisSiswa_UploadSuratPernyataan" id="id_admFormRegisSiswa_UploadSuratPernyataan" aria-describedby="emailHelp" required>
+                    <div id="emailHelp" class="form-text">Surat pernyataan orang tua/wali siswa.</div>
+                </div>
+
+            </div>
+        </div>
+        <!-- End dokument pendukung -->
+
+        <!-- Pembayaran -->
+        <div class="card mt-2">
+            <h5 class="card-header">Pembayaran</h5>
+            <div class="card-body">
+
+                <!-- Skema pembayaran -->
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-file-invoice-dollar"></i></span>
+                    <select name="name_admFormRegisSiswa_pilihSkemaBayar" id="id_admFormRegisSiswa_pilihSkemaBayar" class="form-control" required>
+                        <!-- Ajax Handling -->
+                         <option value="">-- Pilih skema bayar--</option>
+                         <option value="SKM1">Skema - 01</option>
+                         <option value="SKM2">Skema - 02</option>
+                    </select>
+                </div>
+
+                <div id="idTableDiv">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">No.</th>
+                                <th scope="col">Detail Skema</th>
+                                <th scope="col">Harga</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Uang Pendaftaran</td>
+                                <td>150.000</td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Seragam</td>
+                                <td>250.000</td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Uang Gedung</td>
+                                <td>400.000</td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">4</th>
+                                <td>LKS</td>
+                                <td>180.000</td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">5</th>
+                                <td>SPP/Infaq</td>
+                                <td>70.000</td>
+                            </tr>
+
+                            <tr>
+                                <th></th>
+                                <th scope="row">Total</th>
+                                <th scope="row">1.050.000</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Tipe Pembayaran -->
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-file-invoice-dollar"></i></span>
+                    <select name="name_admFormRegisSiswa_pilihTipePembayaran" id="id_admFormRegisSiswa_pilihTipePembayaran" class="form-control">
+                        <!-- Ajax Handling -->
+                    </select>
+                </div>
+
+                <!-- Section pembayaran non tunai -->
+                <div id="idDiv_sectionBayarNonTunai">
+                    <!-- Nama Bank -->
+                    <div class="input-group mb-3" id="test1">
+                        <span class="input-group-text" id="basic-addon1"><i class="fas fa-money-bill-transfer"></i></span>
+                        <select name="name_admFormRegisSiswa_pilihNamaBank" id="id_admFormRegisSiswa_pilihNamaBank" class="form-control">
+                            <!-- Ajax handling -->
+                        </select>
+                    </div>
+    
+                    <!-- Upload bukti transfer -->
+                    <div class="mb-3">
+                        <label for="id_admFormRegisSiswa_uploadBuktiTransfer" class="form-label">Bukti Pembayaran</label>
+                        <input type="file" class="form-control" name="name_admFormRegisSiswa_uploadBuktiTransfer" id="id_admFormRegisSiswa_uploadBuktiTransfer" aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text">Upload bukti pembayaran siswa.</div>
+                    </div>
+
+                </div>
+                <!-- End section pembayaran non tunai -->
+                    
+
+            </div>
+        </div>
+        <!-- End pembayaran -->
+
+        <!-- Info tambahan -->
+        <div class="card mt-2">
+            <h5 class="card-header">Info Tambahan</h5>
+            <div class="card-body">
+                
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="fas fa-circle-info"></i></span>
+                    <textarea class="form-control" name="name_admFormRegisSiswa_catatanPendaftaran" id="id_admFormRegisSiswa_catatanPendaftaran" aria-label="With textarea" placeholder="Contoh : pembayaran baru setengah nya."></textarea>
+                </div>
+
+            </div>
+        </div>
+        <!-- End info tambahan   -->
+
+        <div class="input-group mt-3">
+            <button type="button" class="btn btn-primary" id="id_cekKoneksi">Kembali</button>
+            <button type="submit" class="btn btn-success ml-2">Register</button>
+        </div>
+
+
+
+    </form>

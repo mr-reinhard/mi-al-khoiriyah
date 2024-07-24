@@ -1,0 +1,90 @@
+
+<script>
+    $(document).ready(function(){
+        callFormAuto("../../view/admin/dashboard/daftar_kosong.html","#id_admDivInformasi_formInfo")
+        callFormAuto("../../view/admin/dashboard/list_register.html","#id_admDivInformasi_formInfo")
+    })
+</script>
+
+<div class="row dash-row" id="id_adminMenuDashBoard">
+
+    <!-- Cards here -->
+    <div class="col-xl-4">
+        <div class="stats stats-success">
+            <h3 class="stats-title"> Berhasil </h3>
+            <div class="stats-content">
+                <div class="stats-icon">
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="stats-data">
+                    <div class="stats-number">114</div>
+                    <div class="stats-change">
+                        <!-- <span class="stats-percentage">+25%</span>
+                        <span class="stats-timeframe">from last month</span> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-4">
+        <div class="stats stats-primary">
+            <h3 class="stats-title"> Menunggu </h3>
+            <div class="stats-content">
+                <div class="stats-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="stats-data">
+                    <div class="stats-number">0</div>
+                    <div class="stats-change">
+                        <!-- <span class="stats-percentage">+17.5%</span>
+                        <span class="stats-timeframe">from last month</span> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-4">
+        <div class="stats stats-danger">
+            <h3 class="stats-title"> Dibatalkan </h3>
+            <div class="stats-content">
+                <div class="stats-icon">
+                    <i class="fas fa-xmark"></i>
+                </div>
+                <div class="stats-data">
+                    <div class="stats-number">0</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-xl-6 mb-3">
+        <div class="card">
+
+            <div class="card-header"><i class="fas fa-bell"></i> Notifikasi</div>
+
+            <div class="card-body" id="id_admDivInformasi_formInfo">
+                
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-header"><i class="fas fa-bell"></i> Pesan</div>
+
+            <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Lihat Semua</a>
+            </div>
+
+        </div>
+    </div>
+
+</div>
