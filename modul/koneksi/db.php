@@ -3,7 +3,7 @@
  $server = "localhost";
  $user = "root";
  $pass = "";
- $dbname = "smp_taps";
+ $dbname = "db_mi-al-khoiriyah";
 
  $koneksi = mysqli_connect($server,$user,$pass,$dbname);
  if(mysqli_connect_errno()){
