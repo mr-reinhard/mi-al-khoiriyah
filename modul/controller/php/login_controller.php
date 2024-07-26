@@ -2,6 +2,8 @@
 
 header('Content-Type: application/json');
 
+session_start();
+
 include '../../koneksi/db.php';
 include '../../helper/function.php';
 include '../../database/login_model.php';
@@ -27,6 +29,7 @@ switch ($_GET['aksi_login']) {
     
             if (mysqli_num_rows($runCek) > 0) {
                 # code...
+                $_SESSION['nama_user'] = $userName;
                 echo json_encode(array("Pesan"=>"Login Berhasil","directHalaman"=>"modul/view/admin/"));
                 return true;
             }
@@ -43,6 +46,7 @@ switch ($_GET['aksi_login']) {
     
             if (mysqli_num_rows($runCek2) > 0) {
                 # code...
+                $_SESSION['nama_user'] = $userName;
                 echo json_encode(array("Pesan"=>"Login Berhasil","directHalaman"=>"modul/view/user/"));
                 return true;
             }

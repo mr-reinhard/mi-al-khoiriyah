@@ -1,5 +1,9 @@
 <?php 
 
+header('Content-Type: application/json');
+
+session_start();
+
 include '../../koneksi/db.php';
 include '../../helper/function.php';
 include '../../database/regisSiswa_model.php';
@@ -7,6 +11,11 @@ include '../../database/user_model.php';
 
 
 switch ($_GET['aksi']) {
+
+    case 'callUserSession':
+        # code...
+        echo json_encode(array("UsernameSession"=>$_SESSION['nama_user']));
+        break;
 
     case 'simpanDataSiswa':
         # code...

@@ -84,6 +84,23 @@ function saveDataSiswa(mainFormId,childFormId,titleBefore,textBefore,iconBefore,
 
 }
 
+function getUserSession(elementName,urlBackEnd){
+
+    $.ajax({
+        url:urlBackEnd,
+        type:'GET',
+        success:function(data){
+            $(elementName).text(data.UsernameSession)
+        },
+        error:function(xhr,status,error){
+            console.error('AJAX Error:', status, error);
+            console.error('Response Text:', xhr.responseText);
+            console.error('Status:', xhr.status);
+        }
+    })
+
+}
+
 function saveDataOrangtua(){
 
 }
