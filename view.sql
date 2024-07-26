@@ -39,3 +39,24 @@ tbSiswaAttachment.created_at
 FROM siswa_attachment tbSiswaAttachment
 INNER JOIN siswa tbSiswa ON
 tbSiswa.id_siswa = tbSiswaAttachment.
+
+CREATE VIEW vw_login AS SELECT
+tb_login_status.id_section,
+tb_login_status.id_login,
+tb_login_status.id_status_login,
+tb_login_section.nama_section,
+tb_status_login.nama_status,
+tb_login.user_name,
+tb_login.user_password,
+tb_login.telfon,
+tb_login.created_at,
+tb_login.created_by,
+tb_login.updated_at,
+tb_login.updated_by
+FROM login_status tb_login_status
+INNER JOIN login_section tb_login_section ON
+tb_login_section.id_section = tb_login_status.id_section
+INNER JOIN status_login tb_status_login ON
+tb_status_login.id_status_login = tb_login_status.id_status_login
+INNER JOIN login_akun tb_login ON
+tb_login.id_login = tb_login_status.id_login

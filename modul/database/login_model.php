@@ -60,4 +60,65 @@ function registerUser($DB_Name,$namaTable,$idLogin,$userName,$password,$createdA
     }
 }
 
+// ============================================
+
+// simpan ke table login
+
+
+// ada 18 parameter
+function login_akun_insert($DB_koneksi,
+$namaTable,
+$kolom1,
+$kolom2,
+$kolom3,
+$kolom4,
+$kolom5,
+$kolom6,
+$kolom7,
+$kolom8,
+$val1,
+$val2,
+$val3,
+$val4,
+$val5,
+$val6,
+$val7,
+$val8){
+
+    $sql = "INSERT INTO $namaTable($kolom1,
+    $kolom2,
+    $kolom3,
+    $kolom4,
+    $kolom5,
+    $kolom6,
+    $kolom7,
+    $kolom8)VALUES('$val1',
+    '$val2',
+    '$val3',
+    '$val4',
+    '$val5',
+    '$val6',
+    '$val7',
+    '$val8')";
+
+    mysqli_query($DB_koneksi,$sql);
+    
+}
+
+// simpan ke table login_status
+function login_status_insert($DB_koneksi,$namaTable,$kolom1,$kolom2,$kolom3,$val1,$val2,$val3){
+
+    $sql = "INSERT INTO $namaTable($kolom1,$kolom2,$kolom3)VALUES('$val1','$val2','$val3')";
+
+    mysqli_query($DB_koneksi,$sql);
+    
+}
+
+function resetPassword($DB_koneksi,$namaTable,$kolom1,$kolom2,$val1,$val2){
+
+    $sql = "UPDATE $namaTable SET $kolom1 = '$val1' WHERE $kolom2 = '$val2'";
+
+    mysqli_query($DB_koneksi,$sql);
+}
+
 ?>

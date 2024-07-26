@@ -98,28 +98,7 @@ function saveDataPembayaran(){
 
 }
 
-function saveLogin(mainForm,childForm,urlBackEnd){
 
-    $(mainForm).on("submit",childForm,function(e){
-
-        e.preventDefault()
-
-        $.ajax({
-            url:urlBackEnd,
-            type:'POST',
-            data:$(childForm).serialize(),
-            success:function(data){
-                console.log(data.Message)
-            },
-            error:function(xhr,status,error){
-                console.log('AJAX ERROR', status)
-            }
-        })
-    })
-}
-
-
-saveLogin("#mainContentLoginUser","#id_formRegisterUser","modul/controller/php/user_controller.php?aksi=simpanRegistrasi")
 
 // mainFormId,
 // childFormId,

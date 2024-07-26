@@ -2,11 +2,22 @@
 
 // Sweet Alert JS
 // notifikasi di tengah yang di klik hanya OK aja
-function sweetAlert_notifikasiDiTengah(judul, text, ikon) {
+function sweetAlert_notifikasiDiTengah(judul,text,ikon) {
   Swal.fire({
     title: judul,
     text: text,
     icon: ikon
+  });
+}
+
+// notifikasi di tengah tanpa klik tombol
+function sweetAlert_notifikasiDiTengah_withTimer(judul, text, ikon) {
+  Swal.fire({
+    title: judul,
+    text: text,
+    icon: ikon,
+    showConfirmButton:false,
+    timer:2000
   });
 }
 

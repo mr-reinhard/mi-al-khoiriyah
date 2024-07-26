@@ -4,15 +4,7 @@
 
 header('Content-type: application/json');
 
-function insert_tbLogin($DB_koneksi,
-$namaTable,
-$kolom1,
-$kolom2,
-$kolom3,
-$kolom4,
-$kolom5,
-$kolom6,
-$kolom7,$kolom8,$val1,$val2,$val3,$val4,$val5,$val6,$val7,$val8){
+function insert_tbLogin($DB_koneksi,$namaTable,$kolom1,$kolom2,$kolom3,$kolom4,$kolom5,$kolom6,$kolom7,$kolom8,$val1,$val2,$val3,$val4,$val5,$val6,$val7,$val8){
 
 
     $sql = "INSERT INTO $namaTable($kolom1,$kolom2,$kolom3,$kolom4,$kolom5,$kolom6,$kolom7,$kolom8)VALUES('$val1','$val2','$val3','$val4','$val5','$val6','$val7','$val8')";

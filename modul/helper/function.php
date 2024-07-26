@@ -41,4 +41,12 @@ function explodeString($nilaiInput){
         return $kataPertama;
 }
 
+function hashingKarakter($nilaiInput){
+
+        $key = 'userPassword';
+        $hashing_karakter = hash_hmac('sha256',$nilaiInput,$key);
+        return $hashing_karakter;
+
+}
+
 ?>

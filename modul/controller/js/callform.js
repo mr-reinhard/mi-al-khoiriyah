@@ -51,7 +51,6 @@ function openModal(mainForm, triggerModal, urlForm, showForm, modalName){
 //callFormAuto("../../view/admin/pendaftaran/edit_siswa.html","#mainContentAdmin")
 
 // callform section admin
-
 // buka menu dashboard
 callForm("#id_adminMenuNavbar", "#id_BtnBeranda_adminMenu", "../../view/admin/dashboard/info.html", "#mainContentAdmin")
 

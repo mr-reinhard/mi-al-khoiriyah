@@ -5,13 +5,22 @@
     <form class="p-3 mt-3" method="post" id="id_formLogin_userLoginUser" autocomplete="off">
 
         <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="fas fa-square-caret-down"></i></span>
+            <select name="name_pilihTipeLogin_formLogin" id="" class="form-control" required>
+                <option  value="" disabled selected>Masuk sebagai ?</option>
+                <option value="SEC1">Admin</option>
+                <option value="SEC2">Pendaftar</option>
+            </select>
+        </div>
+
+        <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
-            <input type="text" class="form-control" id="id_inputUsername_formLoginUser" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
+            <input type="text" class="form-control" name="name_inputUsername_formLogin" id="id_inputUsername_formLoginUser" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
         </div>
 
         <div class="input-group mb-3">
             <span class="input-group-text"><i class="fas fa-key"></i></span>
-            <input type="password" class="form-control" id="id_inputPassword_userFormLoginUser" placeholder="Password" required>
+            <input type="password" class="form-control" name="name_inputPassword_formLogin" id="id_inputPassword_userFormLoginUser" placeholder="Password" required>
             <span class="input-group-text" id="id_spanTogglePassword_userFormLoginUser">
                 <i class="fas fa-eye-slash" id="id_iInputPassword_userFormLoginUser"></i>
             </span>
