@@ -1,38 +1,128 @@
+
+<script>
+    $(document).ready(function(){
+        $("#divPembayaranNonTunai").hide()
+        //$("#id_cardTotalPembayaran").hide()
+
+        fetchDropDown("#id_pilihTipePembayaran_userForm_pembayaran","id_tipe_bayar","tipe_bayar","-- Pilih Tipe Bayar --","../../controller/php/user_controller.php?aksi=fetchTipePembayaran");
+        fetchDropDown("#id_pilihNamaBank_userFormPembayaran","id_bank","nama_bank","-- Pilih Nama Bank --","../../controller/php/user_controller.php?aksi=fetchNamaBank");
+    })
+</script>
+
 <h5 class="card-title">Form Pembayaran</h5>
 <div class="row mt-4 justify-content-center">
 
-    <form method="post" id="" autocomplete="off">
+    <form method="post" id="id_formPembayaran_userFormPembayaran" autocomplete="off">
 
-        <div class="input-group mb-3">
+        <div class="mb-3">
+            <label for="id_idRegisterSiswa_userFormPembayaran" class="form-label">ID Register</label>
+            <input type="text" name="name_idRegisterSiswa_userFormPembayaran" class="form-control" id="id_idRegisterSiswa_userFormPembayaran" aria-describedby="emailHelp" readonly>
+        </div>
+
+        <div class="mb-3">
+            <label for="id_idSiswa_userFormPembayaran" class="form-label">ID Siswa</label>
+            <input type="text" name="name_idSiswa_userFormPembayaran" class="form-control" id="id_idSiswa_userFormPembayaran" aria-describedby="emailHelp" readonly>
+        </div>
+
+        <!-- Sesi ini dibuat dinamis -->
+        <div class="input-group mb-3"> 
             <span class="input-group-text" id="basic-addon1"><i class="fas fa-file-invoice-dollar"></i></span>
-            <select name="" id="" class="form-control">
-                <option disabled selected>-- Pilih Skema --</option>
-                <option value="">Skema-01</option>
-                <option value="">Skema-02</option>
+            <select name="name_pilihSkemaPembayaran_userFormPembayaran" id="id_pilihSkema_userForm_pembayaran" class="form-control" required>
+                <option value="" disabled selected>-- Pilih Skema --</option>
+                <option value="SKM1">Skema-01</option>
+                <option value="SKM2">Skema-02</option>
             </select>
         </div>
 
+        
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">No.</th>
+                        <th scope="col">Detail Skema</th>
+                        <th scope="col">Harga</th>
+                    </tr>
+                </thead>
+
+                <tbody id="id_tbodyDetailSkema_userFormPembayaran">
+
+
+
+                    <!-- <tr>
+                        <th scope="row">1</th>
+                        <td>Uang Pendaftaran</td>
+                        <td>150.000</td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Seragam</td>
+                        <td>250.000</td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Uang Gedung</td>
+                        <td>400.000</td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">4</th>
+                        <td>LKS</td>
+                        <td>180.000</td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">5</th>
+                        <td>SPP/Infaq</td>
+                        <td>70.000</td>
+                    </tr>
+
+                    <tr>
+                        <th></th>
+                        <th scope="row">Total</th>
+                        <th scope="row">1.050.000</th>
+                    </tr> -->
+
+                </tbody>
+            </table>
+
+            <div class="card mb-3" id="id_cardTotalPembayaran">
+                <h5 class="card-header">Total Pembayaran</h5>
+                <div class="card-body">
+                    <h5 class="card-title">Total Biaya (Rp.)</h5>
+                    <p class="card-text"><b id="id_textTotalBiaya"></b></p>
+                </div>
+            </div>
+
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1"><i class="fas fa-file-invoice-dollar"></i></span>
-            <select name="" id="" class="form-control">
+            <select name="name_pilihTipePembayaran_userFormPembayaran" id="id_pilihTipePembayaran_userForm_pembayaran" class="form-control" required>
                 <option disabled selected>-- Pilih Tipe Bayar --</option>
-                <option value="">Cash</option>
-                <option value="">Non Tunai</option>
+                <!-- Ajax control -->
             </select>
+        </div>
+
+        <div id="divPembayaranNonTunai">
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-file-invoice-dollar"></i></span>
+                <select name="name_pilihNamaBank_userFormPembayaran" id="id_pilihNamaBank_userFormPembayaran" class="form-control">
+                    <option disabled selected>-- Pilih Nama Bank --</option>
+                    <!-- AJAX Control -->
+                </select>
+            </div>
+    
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-file-invoice-dollar"></i></span>
+                <input type="file" class="form-control" id="id_uploadBuktiPembayaran_userFormPembayaran" name="name_uploadBuktiPembayaran_userFormPembayaran">
+            </div>
+
         </div>
 
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1"><i class="fas fa-file-invoice-dollar"></i></span>
-            <select name="" id="" class="form-control">
-                <option disabled selected>-- Pilih Nama Bank --</option>
-                <option value="">BCA</option>
-                <option value="">BNI</option>
-            </select>
-        </div>
-
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><i class="fas fa-file-invoice-dollar"></i></span>
-            <input type="file" class="form-control" id="">
+            <textarea name="name_catatanPembayaran_userFormPembayaran" id="" class="form-control" placeholder="Contoh : Pembayaran a/n Tn.Wahyu"></textarea>
         </div>
 
         <div class="input-group mb-3">

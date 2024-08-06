@@ -46,7 +46,16 @@ switch ($_GET['aksi_login']) {
     
             if (mysqli_num_rows($runCek2) > 0) {
                 # code...
-                $_SESSION['nama_user'] = $userName;
+                unset($_SESSION['namaUser']);
+                unset($_SESSION['idLogin']);
+                
+                $sqlGetLoginId = "SELECT * FROM vw_login WHERE user_name = '$userName'";
+                $runGetLoginId = mysqli_query($koneksi,$sqlGetLoginId);
+                $dataInArray = mysqli_fetch_array($runGetLoginId);
+
+                $_SESSION['idLogin'] = $dataInArray['id_login'];
+                $_SESSION['namaUser'] = $userName;
+
                 echo json_encode(array("Pesan"=>"Login Berhasil","directHalaman"=>"modul/view/user/"));
                 return true;
             }
@@ -136,9 +145,9 @@ switch ($_GET['aksi_login']) {
         else{
             echo json_encode(array("Judul"=>"Oooppss","Pesan"=>"Nomor telfon tidak terdaftar","Logo"=>"error"));
         }
-        break;
 
         mysqli_close($koneksi);
+        break;
     
     default:
         # code...

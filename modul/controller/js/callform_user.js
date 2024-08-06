@@ -40,7 +40,15 @@ function openModal(mainForm, triggerModal, urlForm, showForm, modalName) {
     })
 }
 
-callFormAuto("dashboard/menu_utama.html","#mainContentUser");
+//callFormAuto("dashboard/menu_utama.html","#mainContentUser");
+//callFormAuto("pembayaran/form_pembayaran.html","#mainContentUser");
+callFormAuto("pembayaran/list_pendaftar.html","#mainContentUser");
+//callFormAuto("edit/list_pendaftar.html","#mainContentUser");
+//callFormAuto("edit/form_edit.html","#mainContentUser");
+//callFormAuto("upload/list_pendaftar.html","#mainContentUser");
+//callFormAuto("upload/upload_form.html","#mainContentUser");
+//callFormAuto("riwayat/list_riwayat.html","#mainContentUser");
+//callFormAuto("print/list_riwayat.html","#mainContentUser");
 
 // dari menu utama ke siswa register
 callForm("#mainContentUser", "#id_menuIsiFormulir_userFormMenuUtama", "pendaftaran/siswa_register.html", "#mainContentUser")
@@ -86,3 +94,9 @@ callForm("#mainContentUser", "#id_btnBayar_formListPendaftar_mdPembayaran", "pem
 
 // dari menu isi form pembayaran ke list pembayaran
 callForm("#mainContentUser", "#id_btnKembali_formIsiPembayaran_mdPembayaran", "pembayaran/list_pendaftar.html", "#mainContentUser")
+
+// dari menu form edit siswa kembali ke list siswa
+callForm("#mainContentUser", "#id_btnKembali_userFormEditSiswa", "edit/list_pendaftar.html", "#mainContentUser")
+
+// dari menu pembayaran ke form pemabayran
+callForm("#mainContentUser", "#id_btnKembali_userFormEditSiswa", "edit/list_pendaftar.html", "#mainContentUser")

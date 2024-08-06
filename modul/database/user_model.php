@@ -93,6 +93,62 @@ function tbUser_getNameOrId(){
 
     
 }
-// end tb_user MODEL
+
+function tbl_siswa_update($koneksiDatabase,$namaTable,$namaSiswa,$idGender,$alamat,$updatedAt,$updatedBy,$idSiswa,$valNamaSiswa,$valIdGender,$valAlamat,$valUpdatedAt,$valUpdatedBy,$valIdSiswa){
+
+    $sql = "UPDATE $namaTable SET $namaSiswa = '$valNamaSiswa',$idGender = '$valIdGender',$alamat = '$valAlamat',$updatedAt = '$valUpdatedAt',$updatedBy = '$valUpdatedBy' WHERE $idSiswa = '$valIdSiswa'";
+
+    mysqli_query($koneksiDatabase,$sql);
+}
+
+// DELETE MODE
+function tbl_siswa_delete($koneksiDatabase,$namaTable,$kolomIdSiswa,$valueIdSiswa){
+
+    $sql = "DELETE FROM $namaTable WHERE $kolomIdSiswa = '$valueIdSiswa'";
+
+    mysqli_query($koneksiDatabase,$sql);
+    
+}
+
+function tbl_siswa_register_delete($koneksiDatabase,$namaTable,$kolomIdSiswa,$valueIdSiswa){
+
+    $sql = "DELETE FROM $namaTable WHERE $kolomIdSiswa = '$valueIdSiswa'";
+
+    mysqli_query($koneksiDatabase,$sql);
+
+}
+
+function tbl_siswa_keluarga_delete($koneksiDatabase,$namaTable,$kolomIdSiswa,$valueIdSiswa){
+
+    $sql = "DELETE FROM $namaTable WHERE $kolomIdSiswa = '$valueIdSiswa'";
+
+    mysqli_query($koneksiDatabase,$sql);
+
+}
+
+function tbl_siswa_attachment_delete($koneksiDatabase,$namaTable,$kolomIdSiswa,$valueIdSiswa){
+    // pasang unlink ke file upload
+    $sql = "DELETE * FROM $namaTable WHERE $kolomIdSiswa = '$valueIdSiswa'";
+
+    mysqli_query($koneksiDatabase,$sql);
+    
+}
+
+function tbl_register_approval_delete($koneksiDatabase,$namaTable,$kolomIdSiswa,$valueIdSiswa){
+
+    $sql = "DELETE FROM $namaTable WHERE $kolomIdSiswa = '$valueIdSiswa'";
+
+    mysqli_query($koneksiDatabase,$sql);
+
+}
+
+function tbl_keluarga_detail_delete($koneksiDatabase,$namaTable,$kolomIdSiswa,$valueIdSiswa){
+
+    $sql = "DELETE FROM $namaTable WHERE $kolomIdSiswa = '$valueIdSiswa'";
+
+    mysqli_query($koneksiDatabase,$sql);
+}
+// END DELETE MODE
+
 
 ?>

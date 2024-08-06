@@ -19,7 +19,7 @@ function getAllData($DB_koneksi,$tableName){
 // get data by id
 function getByid($DB_koneksi,$tableName,$column,$value){
 
-    $sql = "SELECT * FROM $tableName WHERE $column LIKE '%".$value."%'";
+    $sql = "SELECT * FROM $tableName WHERE $column = '$value'";
 
     $runSQl = mysqli_query($DB_koneksi,$sql);
 

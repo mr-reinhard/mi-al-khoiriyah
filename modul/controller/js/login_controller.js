@@ -13,6 +13,7 @@ function login(mainForm,loginForm,urlBackEnd){
             success:function(data){
                 if (data.directHalaman) {
                     window.location.href = data.directHalaman;
+                    //console.log(data.kodeLogin)
                 }
                 else{
                     // judul, text, icon

@@ -1,26 +1,29 @@
-
 <script>
-  $(document).ready(function(){
-    fetchDataKeTable("#id_tableBodyListPendaftar_userFormEditPendaftar","../../controller/php/user_controller.php?aksi=fetch_vw_siswaRegister")
-  })
-</script>
+    $(document).ready(function(){
+      
 
-  <h5 class="card-title">List Pendaftar</h5>
+        // Table konfirmasi
+        fetchDataKeTable_konfirmasiPembayaran("#id_tableBody_formPembayaranSiswa","../../controller/php/pendaftaran_controller.php?aksi=fetchPembayaranApproval");
+
+
+    })
+  </script>
+  
+  <h5 class="card-title">Daftar Pembayaran</h5>
   <div class="row mt-4">
-
-
+  
+  
       <div class="input-group mb-3">
-          <button type="button" class="btn btn-primary" id="id_btnKembali_userModulEditFormListPendaftar"><i class="fas fa-arrow-left"></i> Kembali</button>
+          <button type="button" class="btn btn-primary" id="id_btnKembali_userModulPembayaran_formListPendaftar"><i class="fas fa-arrow-left"></i> Kembali</button>
       </div>
-
+  
       <div class="input-group mb-3">
           <span class="input-group-text" id="basic-addon1"><i class="fas fa-magnifying-glass"></i></span>
           <input type="text" class="form-control" placeholder="Cari..." aria-label="Username" aria-describedby="basic-addon1" autocomplete="off">
       </div>
-
+  
       <table class="table table-hover text-center">
-          
-
+  
           <thead>
               <tr>
                 <th scope="col">No</th>
@@ -28,13 +31,12 @@
                 <th scope="col">Aksi</th>
               </tr>
             </thead>
-
-            <tbody id="id_tableBodyListPendaftar_userFormEditPendaftar">
-
-              <!-- AJAX Handling -->
-
+  
+            <tbody id="id_tableBody_formPembayaranSiswa">
+  
+  
             </tbody>
-
+  
         </table>
-
+  
   </div>

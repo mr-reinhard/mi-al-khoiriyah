@@ -300,6 +300,15 @@ function tbl_keluarga_detail_insert($DB_koneksi,$namaTable,$kolom1,$kolom2,$kolo
 }
 
 
+function tbl_pembayaran_approval_update($DB_koneksi,$namaTable,$kolom1,$where1,$val_kolom1,$val_where1){
+
+    $sql = "UPDATE $namaTable SET $kolom1 = '$val_kolom1' WHERE $where1 = '$val_where1'";
+
+    $runSQL = mysqli_query($DB_koneksi,$sql);
+
+}
+
+
 
 
 ?>

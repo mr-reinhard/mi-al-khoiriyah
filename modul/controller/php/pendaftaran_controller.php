@@ -8,6 +8,7 @@ include '../../database/file_model.php';
 include '../../database/bank_model.php';
 include '../../database/pembayaran_model.php';
 include '../../database/my_model.php';
+include '../../database/view_model.php';
 
 
 
@@ -181,6 +182,39 @@ switch ($_GET['aksi']) {
         case 'fetchTipePembayaran':
             # code...
             tbPembayaranTipe_getAll($koneksi,"pembayaran_tipe");
+            break;
+
+        case 'fetchPembayaranApproval':
+            # code...
+
+            
+            $dataInArray = get_view_by_id($koneksi,"vw_pembayaran_approval","id_approval","APM2");
+
+            echo json_encode($dataInArray);
+
+
+            break;
+
+        case 'fetchApprovalBy_Id_Name':
+            # code...
+            $idRegis = $_POST['idReg'];
+
+            $dataInArray = get_view_by_id_name($koneksi,"vw_pembayaran_approval","id_register","id_approval",$idRegis,"APM2");
+
+            echo json_encode($dataInArray);
+            break;
+
+        case 'UpdateDataPembayaran':
+            # code...
+
+            $idRegis = $_POST['name_fetchIdPembayaranSiswa_adminFormApprovePembayaran'];
+            $idApprove = $_POST['name_pilihAksiApprove_adminFormApprovePembayaran'];
+            $createdDate = date('Y-m-d H:i:s');
+
+            tbl_pembayaran_approval_update($koneksi,"pembayaran_approval","id_approval","id_register",$idApprove,$idRegis);
+
+            echo json_encode(array("Logo"=>"info","Pesan"=>"Pembayaran diupdate","directHalaman"=>"pembayaran/list_pendaftaran.html"));
+
             break;
     
     default:

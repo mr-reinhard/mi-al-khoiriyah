@@ -24,6 +24,8 @@ function UploadFile($nama_file,$customNamaFile){
         $finalDestionation = $uploadDirectory.$newGambarName;
 
         move_uploaded_file($fileTmp, $finalDestionation);
+
+
     }
 
 }

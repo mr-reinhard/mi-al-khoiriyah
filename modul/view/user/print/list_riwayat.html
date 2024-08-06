@@ -1,56 +1,47 @@
-<h5 class="card-title">List Pendaftar</h5>
-<div class="row mt-4">
+<script>
+  $(document).ready(function(){
+    
+    fetchDataKeTable_printMenu("#id_tableBody_userFormPrint","../../controller/php/user_controller.php?aksi=fetchDataForPrint");
+    
+  })
+</script>
+
+<form action="print/form_print.php" method="post" autocomplete="off">
 
 
+  <h5 class="card-title">List Pendaftar</h5>
+  <div class="row mt-4">
+  
+  
     <div class="input-group mb-3">
-        <button type="button" class="btn btn-primary" id="id_btnKembali_userModulPrint_formListRiwayat"><i class="fas fa-arrow-left"></i> Kembali</button>
+      <button type="button" class="btn btn-primary" id="id_btnKembali_userModulPrint_formListRiwayat"><i
+          class="fas fa-arrow-left"></i> Kembali</button>
     </div>
-
+  
     <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1"><i class="fas fa-magnifying-glass"></i></span>
-        <input type="text" class="form-control" placeholder="Cari..." aria-label="Username" aria-describedby="basic-addon1" autocomplete="off">
+      <span class="input-group-text" id="basic-addon1"><i class="fas fa-magnifying-glass"></i></span>
+      <input type="text" class="form-control" placeholder="Cari..." aria-label="Username" aria-describedby="basic-addon1"
+        autocomplete="off">
     </div>
-
-    <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1"><i class="fas fa-circle-chevron-down"></i></span>
-        <select name="" id="" class="form-control">
-            <option value="" selected>Semua</option>
-            <option value="">Pendaftaran</option>
-            <option value="">Pembayaran</option>
-        </select>
-    </div>
-
+  
     <table class="table table-hover">
-        
+  
+  
+      <thead>
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">Nama</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+  
+      <tbody id="id_tableBody_userFormPrint">
+  
+      </tbody>
+  
+    </table>
+  
+  </div>
 
-        <thead>
-            <tr>
-              <th scope="col">No</th>
-              <th scope="col">Nama</th>
-              <th scope="col">Status</th>
-            </tr>
-          </thead>
+</form>
 
-          <tbody>
-
-            <tr>
-              <th scope="row">1</th>
-              <td>Kamelia</td>
-              <td>
-                <button class="btn btn-primary" title="Status"><i class="fas fa-print"></i></button>
-              </td>
-            </tr>
-
-            <tr>
-              <th scope="row">2</th>
-              <td>Dimas</td>
-              <td>
-                <button class="btn btn-primary" title="Bayar"><i class="fas fa-print"></i></button>
-              </td>
-            </tr>
-
-          </tbody>
-
-      </table>
-
-</div>

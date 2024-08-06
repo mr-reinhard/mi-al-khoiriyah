@@ -151,8 +151,8 @@ function saveData(mainForm, formId, urlBackend){
             type:'POST',
             data: $(formId).serialize(),
             success:function(data){
-                console.log(data)
-                console.log("Simpan berhasil");
+                sweetAlert_notifikasiPojokKananAtas(data.Logo,data.Pesan)
+                callFormAuto("pembayaran/list_pendaftaran.html","#mainContentAdmin");
             }
         })
     })
@@ -354,6 +354,94 @@ function testSave(mainForm,ChildForm){
   });
     })
 }
+
+
+function fetchDataKeTable_konfirmasiPembayaran(tableBody,urlBackend){
+    
+    $.ajax({
+        url:urlBackend,
+        type:'POST',
+        success:function(data){
+            //console.log(data)
+
+            var tbody = $(tableBody)
+
+            tbody.empty()
+
+            $.each(data, function(index, row){
+
+                var tr = $('<tr></tr>');
+
+                var tdElementNumber = $('<td></td>').text(index + 1)
+                tr.append(tdElementNumber)
+
+                var tdNamaSiswa = $('<td></td>').text(row.namaSiswa)
+                tr.append(tdNamaSiswa)
+
+                var btnKonfirmasiPembayaran = $('<button class="btn btn-success" id="id_btnBukaFormApprove_adminFormListPembayaran" name="user_btnPrintPembayaran" value="'+row.id_register+'"><i class="fas fa-check"></i></button>')
+                var tbButtonKonfirmasiPembayaran = $('<td></td>').append(btnKonfirmasiPembayaran)
+                tr.append(tbButtonKonfirmasiPembayaran)
+
+                tbody.append(tr)
+
+            })
+
+        },
+        error:function(xhr,status,error){
+            console.log('Ajax Error',status,error)
+            console.log('',xhr.responseText)
+            console.log('Status',xhr.status)
+        }
+    })
+}
+
+function openFormApprove(mainForm,idButton,urlBackend1,urlBackend2){
+
+    $(mainForm).on("click",idButton,function(){
+
+        var nilaiTombol = $(this).attr("value")
+
+        $.ajax({
+            url:urlBackend1,
+            method:'POST',
+            data:{
+                idReg:nilaiTombol
+            },
+            success:function(data){
+                //console.log(data.namaSiswa)
+                $.ajax({
+                    url:urlBackend2,
+                    method:'POST',
+                    success:function(response){
+                        $("#mainContentAdmin").html(response)
+                        $("#id_fetchIdPembayaranSiswa_adminFormApprovePembayaran").val(data.id_register)
+                        $("#id_fetchInputNamaSiswa_adminFormApprovePembayaran").val(data.namaSiswa)
+                        $("#id_fetchInputgenderSiswa_adminFormApprovePembayaran").val(data.namaGender)
+                    }
+                })
+
+            },
+            error:function(xhr,status,error){
+                console.log('AJAX Error',status,error)
+                console.log('Response Text',xhr.responseText)
+                console.log('Status',xhr.status)
+            }
+        })
+    })
+}
+
+// mainForm,
+// formId,
+// urlBackend
+
+saveData("#mainContentAdmin",
+    "#id_formApprovePembayaran_adminFormPembayaran",
+    "../../controller/php/pendaftaran_controller.php?aksi=UpdateDataPembayaran");
+
+openFormApprove("#mainContentAdmin",
+    "#id_btnBukaFormApprove_adminFormListPembayaran",
+    "../../controller/php/pendaftaran_controller.php?aksi=fetchApprovalBy_Id_Name",
+    "pembayaran/form_approve.html")
 
 
 //testSave("#mainContentAdmin","#id_adminFormRegisterSiswa")

@@ -80,7 +80,7 @@ function sweetAlert_withImage(title, text, urlImage, altImage){
     title: title,
     text: text,
     imageUrl: urlImage,
-    imageWidth: 400,
+    imageWidth: 200,
     imageHeight: 200,
     imageAlt: altImage
 

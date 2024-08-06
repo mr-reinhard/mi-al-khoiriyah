@@ -38,7 +38,8 @@ $(mainForm).on("click", triggerModal, function(){
 })
 }
 
-//callFormAuto("dashboard/menu_utama.html","#mainContentUser");
+callFormAuto("pembayaran/list_pendaftaran.html","#mainContentAdmin");
+//callFormAuto("pembayaran/form_approve.html","#mainContentAdmin");
 
 
 // buka menu dashboard
@@ -64,3 +65,6 @@ callForm("#mainContentAdmin", "#id_btnEditSiswa_admFormListPendaftaran", "../../
 
 // tombol kembali ke list pendaftaran
 callForm("#mainContentAdmin", "#id_btnKembali_admFormEditSiswa", "../../view/admin/pendaftaran/list_pendaftaran.html", "#mainContentAdmin")
+
+// tombol ke menu pembayaran/konfirmasi
+callForm("#id_adminMenuNavbar", "#id_menuKonfirmasiPembayaran_adminMenuPembayaran", "../../view/admin/pembayaran/list_pendaftaran.html", "#mainContentAdmin")

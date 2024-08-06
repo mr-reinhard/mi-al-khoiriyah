@@ -1,4 +1,4 @@
-<h5 class="card-title">Riwayat Pendaftar</h5>
+<h5 class="card-title text-center">Riwayat Pendaftar</h5>
 <div class="row mt-4">
 
 
@@ -8,19 +8,20 @@
 
     <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1"><i class="fas fa-magnifying-glass"></i></span>
-        <input type="text" class="form-control" placeholder="Cari..." aria-label="Username" aria-describedby="basic-addon1" autocomplete="off">
+        <input type="text" class="form-control" name="name_inputNamaSiswa_userFormListRiwayat" id="id_inputNamaSiswa_userFormListRiwayat" placeholder="Cari..." aria-label="Username" aria-describedby="basic-addon1" autocomplete="off" value="">
     </div>
 
     <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1"><i class="fas fa-circle-chevron-down"></i></span>
-        <select name="" id="" class="form-control">
-            <option value="" selected>Semua</option>
-            <option value="">Pendaftaran</option>
-            <option value="">Pembayaran</option>
+        <span class="input-group-text" id="id_pilihPencarianRiwayat_userFormListRiwayat"><i class="fas fa-circle-chevron-down"></i></span>
+        <select name="name_pilihPencarianRiwayat_userFormListRiwayat" id="id_pilihPencarianRiwayat_userFormListRiwayat" class="form-control">
+            <option value="SC0" selected>Semua</option>
+            <option value="APM1">Lunas</option>
+            <option value="APM2">Menunggu</option>
+            <option value="APM4">Dibatalkan</option>
         </select>
     </div>
 
-    <table class="table table-hover">
+    <table class="table table-hover text-center">
         
 
         <thead>
@@ -31,9 +32,9 @@
             </tr>
           </thead>
 
-          <tbody>
+          <tbody id="id_tbodyRiwayat_userFormRiwayat">
 
-            <tr>
+            <!-- <tr>
               <th scope="row">1</th>
               <td>Kamelia</td>
               <td>
@@ -47,7 +48,7 @@
               <td>
                 <button class="btn btn-warning" title="Bayar">PENDING</button>
               </td>
-            </tr>
+            </tr> -->
 
           </tbody>
 

@@ -1,7 +1,15 @@
 <?php 
 
-include 'asset/lib/fpdf186/fpdf.php';
+include '../../../../asset/lib/fpdf186/fpdf.php';
+include '../../../koneksi/db.php';
 
+$idButton = $_POST['user_btnPrintPembayaran'];
+
+$sql = "SELECT * FROM vw_pembayaran_approval WHERE id_register = '$idButton'";
+
+$runSQL = mysqli_query($koneksi,$sql);
+
+$dataInArray = mysqli_fetch_array($runSQL);
 
 class PDF extends FPDF
 {
@@ -9,13 +17,14 @@ class PDF extends FPDF
     function Header()
     {
         // Logo
-        $this->Image('asset/image/logo_mi.png', 10, 6, 30);
+        $this->Image('../../../../asset/image/logo_mi.png', 10, 6, 30);
         $this->SetFont('Arial', 'B', 12);
         // Title
         $this->Cell(0, 10, 'MI AL-KHOIRIYAH', 0, 1, 'C');
         $this->SetFont('Arial', '', 10);
-        $this->Cell(0, 10, 'Jl. Simpangan, Cikarang Timur, Jatireja, Kecamatan Cikarang Timur, Kabupaten Bekasi, Jawa Barat 17550', 0, 1, 'C');
-        $this->Cell(0, 10, '0896-9445-8141 | https://www.mi-al-khoiriyah.com', 0, 1, 'C');
+        $this->Cell(0, 10, 'Jl. Simpangan, Cikarang Timur, Jatireja, Kecamatan Cikarang Timur,', 0, 1, 'R');
+        $this->Cell(0, 10, ' Kabupaten Bekasi, Jawa Barat 17550', 0, 1, 'R');
+        $this->Cell(0, 10, '0896-9445-8141 | https://www.mi-al-khoiriyah.com', 0, 1, 'R');
         // Line break
         $this->Ln(10);
     }
@@ -41,16 +50,14 @@ $pdf->Cell(0, 10, 'BUKTI PEMBAYARAN', 0, 1, 'C');
 $pdf->Ln(5);
 
 $pdf->SetFont('Arial', 'B', 10);
-$pdf->Cell(0, 10, 'BUDI HERMAWAN', 0, 1, 'C');
+$pdf->Cell(0, 10, $dataInArray['namaSiswa'], 0, 1, 'C'); // <-- nama siswa
 $pdf->Ln(10);
 
 $pdf->SetFont('Arial', 'B', 10);
 $pdf->Cell(0, 10, 'DETAIL INFORMASI', 0, 1, 'L');
 $pdf->SetFont('Arial', '', 10);
-$pdf->Cell(0, 8, 'ID Pembayaran : D45AK9965656', 0, 1, 'L');
-$pdf->Cell(0, 8, 'Gender : Laki-Laki', 0, 1, 'L');
-$pdf->Cell(0, 8, 'Tempat/Tgl Lahir : Jakarta, 19 Desember 1995', 0, 1, 'L');
-$pdf->Cell(0, 8, 'Domisili : Jakarta', 0, 1, 'L');
+$pdf->Cell(0, 8, 'ID Pembayaran : '.$dataInArray['id_pembayaran'], 0, 1, 'L'); // id pembayaran
+$pdf->Cell(0, 10, 'TGL Pembayaran : '.$dataInArray['created_at'], 0, 1, 'L'); // tgl pembayaran
 $pdf->Ln(10);
 
 $pdf->SetFont('Arial', 'B', 10);
@@ -91,14 +98,8 @@ $pdf->SetFont('Arial', '', 10);
 $pdf->Cell(40, 10, '1.050.000', 1, 1, 'R');
 
 $pdf->Ln(10);
-$pdf->Cell(0, 10, 'TGL PEMBAYARAN : 23 July 2024', 0, 1, 'L');
-$pdf->Cell(0, 10, 'STATUS : LUNAS', 0, 1, 'L');
-$pdf->Ln(10);
-$pdf->Cell(0, 10, 'Cikarang, 27 Juli 2024', 0, 1, 'L');
-$pdf->Ln(20);
-$pdf->Cell(0, 10, 'Kepala Sekolah MI Al-Khoiriyah', 0, 1, 'L');
-$pdf->Ln(20);
-$pdf->Cell(0, 10, '( Izaac Rehnard Latuwael )', 0, 1, 'L');
+//$pdf->Cell(0, 10, 'TGL Approve : 23 July 2024', 0, 1, 'L'); // tgl approve
+$pdf->Cell(0, 10, 'STATUS : '.$dataInArray['approval_name'], 0, 1, 'L'); // status
 
 $pdf->Output();
 

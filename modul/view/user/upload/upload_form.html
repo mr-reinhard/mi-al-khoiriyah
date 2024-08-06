@@ -1,31 +1,42 @@
 <h5 class="card-title">Upload Berkas</h5>
 <div class="row mt-4 justify-content-center">
 
-    <form method="post" id="" autocomplete="off">
+    <form method="post" id="id_formUploadDokumen_userFormUploadDokumen" autocomplete="off" enctype="multipart/form-data">
 
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><i class="fas fa-image"></i></span>
-            <input type="file" class="form-control" placeholder="Nama siswa" aria-label="Username" aria-describedby="basic-addon1">
+
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">ID Siswa</label>
+            <input type="text" name="name_idSiswa_userFormUploadDokumen" class="form-control" id="id_idSiswafetch_userUploadForm" aria-describedby="emailHelp" readonly>
         </div>
 
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><i class="fas fa-file-pdf"></i></span>
-            <input type="file" class="form-control" placeholder="Nama siswa" aria-label="Username" aria-describedby="basic-addon1">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Pass Photo</label>
+            <input type="file" name="name_uploadPassPhoto_userFormUploadDokumen" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">.JPG .JPEG. PNG dibawah 500Kb</div>
         </div>
 
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><i class="fas fa-file-pdf"></i></span>
-            <input type="file" class="form-control" placeholder="Nama siswa" aria-label="Username" aria-describedby="basic-addon1">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Ijazah</label>
+            <input type="file" name="name_uploadIjazah_userFormUploadDokumen" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">Upload .PDF Max 500Kb</div>
         </div>
 
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><i class="fas fa-file-pdf"></i></span>
-            <input type="file" class="form-control" placeholder="Nama siswa" aria-label="Username" aria-describedby="basic-addon1">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Kartu Keluarga</label>
+            <input type="file" name="name_kartuKeluarga_userFormUploadDokumen" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">Upload .PDF Max 500Kb</div>
         </div>
 
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><i class="fas fa-file-pdf"></i></span>
-            <input type="file" class="form-control" placeholder="Nama siswa" aria-label="Username" aria-describedby="basic-addon1">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Akta Kelahiran</label>
+            <input type="file" name="name_uploadAktaKelahiran_userFormUploadDokumen" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">Upload .PDF Max 500Kb</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Surat Pernyataan</label>
+            <input type="file" name="name_uploadSuratPernyataan_userFormUploadDokumen" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">Upload .PDF Max 500Kb</div>
         </div>
 
         <div class="input-group mt-3 mb-3">
