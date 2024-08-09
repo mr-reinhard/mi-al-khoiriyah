@@ -130,12 +130,12 @@ tb_pembayaran.id_pembayaran,
 tb_pembayaran.id_register,
 tb_pembayaran.id_skema,
 tb_pembayaran.id_tipe_bayar,
-tb_pembayaran.id_bank,
+-- tb_pembayaran.id_bank,
 vwSiswaRegister.namaSiswa,
 vwSiswaRegister.namaGender,
 tb_pembayaran_skema.nama_skema,
-tb_pembayaran_tipe.tipe_bayar,
-tb_bank_daftar.nama_bank
+tb_pembayaran_tipe.tipe_bayar
+-- tb_bank_daftar.nama_bank
 FROM pembayaran tb_pembayaran
 INNER JOIN vw_siswa_register vwSiswaRegister ON
 vwSiswaRegister.idRegister = tb_pembayaran.id_register
@@ -143,8 +143,8 @@ INNER JOIN pembayaran_skema tb_pembayaran_skema ON
 tb_pembayaran_skema.id_skema = tb_pembayaran.id_skema
 INNER JOIN pembayaran_tipe tb_pembayaran_tipe ON
 tb_pembayaran_tipe.id_tipe_bayar = tb_pembayaran.id_tipe_bayar
-INNER JOIN bank_daftar tb_bank_daftar ON
-tb_bank_daftar.id_bank = tb_pembayaran.id_bank
+-- INNER JOIN bank_daftar tb_bank_daftar ON
+-- tb_bank_daftar.id_bank = tb_pembayaran.id_bank
 
 CREATE VIEW vw_pembayaran_approval AS SELECT
 tbPembayaranApprove.id_register,
@@ -176,6 +176,6 @@ tbApprovalPembayaran.id_approval = tbPembayaranApprove.id_approval
 
 
 
-CREATE VIEW vw_siswa_attachment AS SELECT
-tbSiswaRegister.id_register,
-tbSiswaRegister.id_siswa,
+-- CREATE VIEW vw_siswa_attachment AS SELECT
+-- tbSiswaRegister.id_register,
+-- tbSiswaRegister.id_siswa,

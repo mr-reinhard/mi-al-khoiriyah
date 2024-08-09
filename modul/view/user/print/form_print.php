@@ -11,6 +11,22 @@ $runSQL = mysqli_query($koneksi,$sql);
 
 $dataInArray = mysqli_fetch_array($runSQL);
 
+//=====================================================
+
+$sqlPembayaran = "SELECT * FROM vw_pembayaran WHERE id_register = '$dataInArray[id_register]'";
+
+$runSQLPembayaran = mysqli_query($koneksi,$sqlPembayaran);
+
+$arrayVWPembayaran = mysqli_fetch_array($runSQLPembayaran);
+
+//=====================================
+//$arrayVWPembayaran[id_skema]
+
+
+
+
+
+
 class PDF extends FPDF
 {
     // Page header
@@ -77,17 +93,41 @@ $items = [
 ];
 
 $i = 1;
-foreach ($items as $item) {
+$totalBiaya = 0;
+
+
+
+$sqlSkemaPembayaran = "SELECT * FROM skema_detail WHERE id_skema = '$arrayVWPembayaran[id_skema]'";
+
+$runSkemaPembayaran = mysqli_query($koneksi,$sqlSkemaPembayaran);
+
+while ($baris = mysqli_fetch_array($runSkemaPembayaran)) {
+    # code...
     $pdf->Cell(10, 10, $i++, 1, 0, 'C');
-    $pdf->Cell(110, 10, $item[0], 1, 0, 'L');
-    $pdf->Cell(40, 10, $item[1], 1, 1, 'R');
+    $pdf->Cell(110, 10, $baris['detail_skema'], 1, 0, 'L');
+    $pdf->Cell(40, 10, $baris['harga'], 1, 1, 'R');
+    //$totalBiaya += $row['biaya'];
 }
 
+// $i = 1;
+// foreach ($items as $item) {
+//     $pdf->Cell(10, 10, $i++, 1, 0, 'C');
+//     $pdf->Cell(110, 10, $item[0], 1, 0, 'L');
+//     $pdf->Cell(40, 10, $item[1], 1, 1, 'R');
+// }
+
+$sqlHitungTotal = "SELECT SUM(harga) AS totalHarga FROM skema_detail WHERE id_skema = '$arrayVWPembayaran[id_skema]'";
+
+$sqlRUNHitungTotal = mysqli_query($koneksi,$sqlHitungTotal);
+
+$arrayRUNHitungTotal = mysqli_fetch_array($sqlRUNHitungTotal);
+
+//$arrayRUNHitungTotal['totalHarga]
 // Summary
 $pdf->SetFont('Arial', 'B', 10);
 $pdf->Cell(120, 10, 'TOTAL', 1, 0, 'C');
 $pdf->SetFont('Arial', '', 10);
-$pdf->Cell(40, 10, '1.050.000', 1, 1, 'R');
+$pdf->Cell(40, 10, $arrayRUNHitungTotal['totalHarga'], 1, 1, 'R');
 $pdf->SetFont('Arial', 'B', 10);
 $pdf->Cell(120, 10, 'DISCOUNT %', 1, 0, 'C');
 $pdf->SetFont('Arial', '', 10);
@@ -95,7 +135,7 @@ $pdf->Cell(40, 10, '0', 1, 1, 'R');
 $pdf->SetFont('Arial', 'B', 10);
 $pdf->Cell(120, 10, 'GRAND TOTAL', 1, 0, 'C');
 $pdf->SetFont('Arial', '', 10);
-$pdf->Cell(40, 10, '1.050.000', 1, 1, 'R');
+$pdf->Cell(40, 10, $arrayRUNHitungTotal['totalHarga'], 1, 1, 'R');
 
 $pdf->Ln(10);
 //$pdf->Cell(0, 10, 'TGL Approve : 23 July 2024', 0, 1, 'L'); // tgl approve
