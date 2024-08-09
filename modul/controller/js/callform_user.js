@@ -40,9 +40,9 @@ function openModal(mainForm, triggerModal, urlForm, showForm, modalName) {
     })
 }
 
-//callFormAuto("dashboard/menu_utama.html","#mainContentUser");
+callFormAuto("dashboard/menu_utama.html","#mainContentUser");
 //callFormAuto("pembayaran/form_pembayaran.html","#mainContentUser");
-callFormAuto("pembayaran/list_pendaftar.html","#mainContentUser");
+//callFormAuto("pembayaran/list_pendaftar.html","#mainContentUser");
 //callFormAuto("edit/list_pendaftar.html","#mainContentUser");
 //callFormAuto("edit/form_edit.html","#mainContentUser");
 //callFormAuto("upload/list_pendaftar.html","#mainContentUser");

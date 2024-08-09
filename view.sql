@@ -41,13 +41,13 @@ tb_keluarga_anggota.id_anggota = tb_siswa_keluarga.id_anggota
 INNER JOIN keluarga_detail tb_keluarga_detail ON
 tb_keluarga_detail.id_detail = tb_siswa_keluarga.id_detail
 
-CREATE VIEW vw_siswa_attachment AS SELECT
-tb_siswa.id_siswa,
-tb_siswa_attachment.id_attachment,
-tb_siswa_attachment.doc_name
-FROM siswa tb_siswa
-INNER JOIN siswa_attachment tb_siswa_attachment ON
-tb_siswa_attachment.id_siswa = tb_siswa.id_siswa
+-- CREATE VIEW vw_siswa_attachment AS SELECT
+-- tb_siswa.id_siswa,
+-- tb_siswa_attachment.id_attachment,
+-- tb_siswa_attachment.doc_name
+-- FROM siswa tb_siswa
+-- INNER JOIN siswa_attachment tb_siswa_attachment ON
+-- tb_siswa_attachment.id_siswa = tb_siswa.id_siswa
 
 
 CREATE VIEW vw_siswa AS SELECT
@@ -176,3 +176,6 @@ tbApprovalPembayaran.id_approval = tbPembayaranApprove.id_approval
 
 
 
+CREATE VIEW vw_siswa_attachment AS SELECT
+tbSiswaRegister.id_register,
+tbSiswaRegister.id_siswa,

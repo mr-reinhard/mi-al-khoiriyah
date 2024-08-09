@@ -186,7 +186,35 @@ daftar Session paten
 
 
 
+ada list edit dan bisa edit itu skemanya
+- cek ke table dulu udah approve apa belum
+- kalo belum tampilin list nya
+- kalo udah ilangin list nya
+
+join..
+register & pembayaran approval
+from nya dari register
+
+
+muncul list dan bisa buka form upload itu skema nya
+dia cek dulu di table siswa_attachment ada apa engga
+
+- kalo ada, ilangin list nya ganti edit
+- kalo gaada munculin list nya ganti upload
+- kalo siswa nya udah approve ilangin list nya
+
+muncul list pembayaran trus bisa lakuin pembayaran itu
+skema nya adalah,
+
+- dia cek dulu udah bayar apa belum
+- kalo udah ganti ke edit doang
+- kalo udah di approve sama admin ilangin list nya.
 
 
 
+selalu sertakan hal ini jika join table
 
+- id login
+- id_register
+- id_pembayaran
+- id_siswa

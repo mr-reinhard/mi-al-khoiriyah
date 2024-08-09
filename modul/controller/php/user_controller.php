@@ -590,6 +590,36 @@ switch ($_GET['aksi']) {
 
 
         break;
+
+    case 'fetchListEdit':
+        # code...
+
+        $sql = "SELECT * FROM vw_pembayaran_approval WHERE id_login = '$_SESSION[idLogin]' AND id_approval = 'APM2'";
+
+        $runSQL = mysqli_query($koneksi,$sql);
+
+        if (mysqli_num_rows($runSQL) > 0) {
+            
+            // tembak ke table vw_siswa_register
+
+        }
+        else{
+            // balikin kosong
+            // atau alihkan ke form kosong
+        }
+
+        
+
+        break;
+
+    case 'fetchListUpload':
+        # code...
+        //$sql = "SELECT * FROM "
+        break;
+
+    case 'fetchListPembayaran':
+        # code...
+        break;
     
     default:
         # code...
