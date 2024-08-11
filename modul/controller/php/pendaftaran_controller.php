@@ -216,6 +216,138 @@ switch ($_GET['aksi']) {
             echo json_encode(array("Logo"=>"info","Pesan"=>"Pembayaran diupdate","directHalaman"=>"pembayaran/list_pendaftaran.html"));
 
             break;
+
+        case 'hitungPembayaranBerhasil':
+            # code...
+            $sqlCekPembayaranBerhasil = "SELECT COUNT(*) AS totalBerhasil FROM pembayaran_approval WHERE id_approval = 'APM1'";
+
+            $runCekPembayaranBerhasil = mysqli_query($koneksi,$sqlCekPembayaranBerhasil);
+
+            $dataInArray = mysqli_fetch_all($runCekPembayaranBerhasil,MYSQLI_ASSOC);
+
+            echo json_encode($dataInArray);
+
+            mysqli_close($koneksi);
+            break;
+
+        case 'hitungPembayaranMenunggu':
+            # code...
+
+            $sqlCekPembayaranMenunggu = "SELECT COUNT(*) AS totalMenunggu FROM pembayaran_approval WHERE id_approval = 'APM2'";
+
+            $runCekPembayaranMenunggu = mysqli_query($koneksi,$sqlCekPembayaranMenunggu);
+
+            $dataInArray = mysqli_fetch_all($runCekPembayaranMenunggu,MYSQLI_ASSOC);
+
+            echo json_encode($dataInArray);
+
+            mysqli_close($koneksi);
+
+            break;
+
+        case 'hitungPembayaranDibatalkan':
+            # code...
+
+            $sqlCekPembayaranDibatalkan = "SELECT COUNT(*) AS totalDibatalkan FROM pembayaran_approval WHERE id_approval = 'APM4'";
+
+            $runCekPembayaranDibatalkan = mysqli_query($koneksi,$sqlCekPembayaranDibatalkan);
+
+            $dataInArray = mysqli_fetch_all($runCekPembayaranDibatalkan,MYSQLI_ASSOC);
+
+            echo json_encode($dataInArray);
+
+            mysqli_close($koneksi);
+            
+            break;
+
+        case 'fetchRiwayatPembayaran_byName_byStatus':
+            # code...
+
+            
+            $namaSiswa = $_POST['namaSiswa'];
+            //sukses only
+            $sql = "SELECT * FROM vw_pembayaran_approval WHERE namaSiswa LIKE '%".$namaSiswa."%'";
+
+            $runSQl = mysqli_query($koneksi,$sql);
+
+            $dataInArray = mysqli_fetch_all($runSQl,MYSQLI_ASSOC);
+
+            echo json_encode($dataInArray);
+
+            mysqli_close($koneksi);
+
+            break;
+
+        case 'fetchRiwayatPembayaran':
+            # code...
+            
+            $sql = "SELECT * FROM vw_pembayaran_approval WHERE id_approval = 'APM1' OR id_approval = 'APM2'";
+
+            $runSQL = mysqli_query($koneksi,$sql);
+
+            $dataInArray = mysqli_fetch_all($runSQL,MYSQLI_ASSOC);
+
+            echo json_encode($dataInArray);
+
+            mysqli_close($koneksi);
+
+            break;
+
+        case 'fetchSiswaRegister':
+            # code...
+            $sql = "SELECT * FROM vw_siswa_register";
+
+            $runSQL = mysqli_query($koneksi,$sql);
+
+            $dataInArray = mysqli_fetch_all($runSQL,MYSQLI_ASSOC);
+
+            echo json_encode($dataInArray);
+
+            mysqli_close($koneksi);
+            break;
+
+        case 'fetchDokumen_ById':
+            # code...
+
+            $idSiswa = $_POST['idSis'];
+
+            $sql = "SELECT * FROM vw_siswa_attachment WHERE id_siswa = '$idSiswa'";
+
+            $runSQL = mysqli_query($koneksi,$sql);
+
+            $dataInArray = mysqli_fetch_all($runSQL,MYSQLI_ASSOC);
+
+            echo json_encode($dataInArray);
+
+            //mysqli_close($koneksi);
+
+            break;
+
+        case 'fetchPrintDokumen':
+            # code...
+
+            $sql = "SELECT * FROM vw_pembayaran_approval";
+
+            $runSQL = mysqli_query($koneksi,$sql);
+
+            $dataInArray = mysqli_fetch_all($runSQL,MYSQLI_ASSOC);
+
+            echo json_encode($dataInArray);
+
+            mysqli_close($koneksi);
+            break;
+
+        case 'updateSiswa':
+            # code...
+            break;
+
+        case 'logoutAkun':
+            # code...
+
+            //deleteCookieAndSession();
+
+            echo json_encode(array("directHalaman"=>"../../../index.html"));
+            break;
     
     default:
         

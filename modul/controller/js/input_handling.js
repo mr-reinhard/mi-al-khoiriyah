@@ -226,6 +226,10 @@ handlingOnlyNumber("#mainContentLoginUser","#id_inputTelfonUser_userFormRegister
 blokSpasi("#mainContentLoginUser","#id_inputUsername_formLoginUser")
 
 
+//=======================================================================================
+// karakter handling user
+
+
 
 
 

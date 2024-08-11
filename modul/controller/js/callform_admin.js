@@ -38,8 +38,12 @@ $(mainForm).on("click", triggerModal, function(){
 })
 }
 
-callFormAuto("pembayaran/list_pendaftaran.html","#mainContentAdmin");
+//callFormAuto("pembayaran/list_pendaftaran.html","#mainContentAdmin");
 //callFormAuto("pembayaran/form_approve.html","#mainContentAdmin");
+//callFormAuto("dashboard/info.html","#mainContentAdmin");
+callFormAuto("pendaftaran/list_pendaftaran.html","#mainContentAdmin");
+
+//callFormAuto("riwayat/list_riwayat.html","#mainContentAdmin");
 
 
 // buka menu dashboard
@@ -68,3 +72,12 @@ callForm("#mainContentAdmin", "#id_btnKembali_admFormEditSiswa", "../../view/adm
 
 // tombol ke menu pembayaran/konfirmasi
 callForm("#id_adminMenuNavbar", "#id_menuKonfirmasiPembayaran_adminMenuPembayaran", "../../view/admin/pembayaran/list_pendaftaran.html", "#mainContentAdmin")
+
+// id_btnKembali_userModulPembayaran_formListPendaftar
+callForm("#mainContentAdmin", "#id_btnKembali_userModulPembayaran_formListPendaftar", "../../view/admin/pembayaran/list_pendaftaran.html", "#mainContentAdmin")
+
+// ke menu riwayat pendaftaran
+callForm("#id_adminMenuNavbar", "#id_menuPembayaran_adminMenuRiwayat", "../../view/admin/riwayat/list_riwayat.html", "#mainContentAdmin")
+
+// ke menu print
+callForm("#id_adminMenuNavbar", "#id_menuPrintPembayaran_adminMenuPrintRiwayat", "../../view/admin/print/list_pendaftar.html", "#mainContentAdmin")

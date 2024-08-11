@@ -1,8 +1,11 @@
 
 <script>
     $(document).ready(function(){
-        callFormAuto("../../view/admin/dashboard/daftar_kosong.html","#id_admDivInformasi_formInfo")
-        callFormAuto("../../view/admin/dashboard/list_register.html","#id_admDivInformasi_formInfo")
+        //callFormAuto("../../view/admin/dashboard/daftar_kosong.html","#id_admDivInformasi_formInfo")
+        //callFormAuto("../../view/admin/dashboard/list_register.html","#id_admDivInformasi_formInfo")
+        infoBerhasil("../../controller/php/pendaftaran_controller.php?aksi=hitungPembayaranBerhasil","#id_infoBerhasil")
+        infoMenunggu("../../controller/php/pendaftaran_controller.php?aksi=hitungPembayaranMenunggu","#id_infoMenunggu")
+        infoDibatalkan("../../controller/php/pendaftaran_controller.php?aksi=hitungPembayaranDibatalkan","#id_infoDibatalkan")
     })
 </script>
 
@@ -17,7 +20,7 @@
                     <i class="fas fa-check"></i>
                 </div>
                 <div class="stats-data">
-                    <div class="stats-number">114</div>
+                    <div class="stats-number" id="id_infoBerhasil">114</div>
                     <div class="stats-change">
                         <!-- <span class="stats-percentage">+25%</span>
                         <span class="stats-timeframe">from last month</span> -->
@@ -35,7 +38,7 @@
                     <i class="fas fa-clock"></i>
                 </div>
                 <div class="stats-data">
-                    <div class="stats-number">0</div>
+                    <div class="stats-number" id="id_infoMenunggu">0</div>
                     <div class="stats-change">
                         <!-- <span class="stats-percentage">+17.5%</span>
                         <span class="stats-timeframe">from last month</span> -->
@@ -53,7 +56,7 @@
                     <i class="fas fa-xmark"></i>
                 </div>
                 <div class="stats-data">
-                    <div class="stats-number">0</div>
+                    <div class="stats-number" id="id_infoDibatalkan">0</div>
                 </div>
             </div>
         </div>
@@ -61,7 +64,8 @@
 
 </div>
 
-<div class="row">
+<!-- <div class="row">
+
     <div class="col-xl-6 mb-3">
         <div class="card">
 
@@ -87,4 +91,4 @@
         </div>
     </div>
 
-</div>
+</div> -->

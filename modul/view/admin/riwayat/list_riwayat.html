@@ -1,14 +1,15 @@
 <script>
     $(document).ready(function(){
-        getListDetailDokumen("#id_tableBody_adminPendaftaran_listPendaftar","../../controller/php/pendaftaran_controller.php?aksi=fetchSiswaRegister")
+        getListRiwayatPembayaran("../../controller/php/pendaftaran_controller.php?aksi=fetchRiwayatPembayaran","#id_tableBody_modulListRiwayatPembayaran")
     })
 </script>
 
 <div class="card">
     <h5 class="card-header">
-        <label for="">List Pendaftar</label>
 
-        <input type="text" class="form-control mt-1" placeholder="Cari...">
+        <label for="">Riwayat</label>
+
+        <input type="text" class="form-control mt-1" placeholder="Cari..." id="id_searchNamaSiswa_formListRiwayatPembayaran">
     </h5>
 
     <div class="card-body">
@@ -19,17 +20,17 @@
         <tr>
             <th scope="col">No.</th>
             <th scope="col">Nama Siswa</th>
-            <th scope="col">Aksi</th>
+            <th scope="col">Status</th>
         </tr>
     </thead>
-    <tbody id="id_tableBody_adminPendaftaran_listPendaftar">
+
+    <tbody id="id_tableBody_modulListRiwayatPembayaran">
 
         <!-- <tr>
             <th scope="row">1</th>
             <td>Rian</td>
             <td>
                 <button class="btn btn-primary" title="Lihat detail" id="id_btnLihatSiswa_admFormListPendaftaran"><i class="fas fa-eye"></i></button>
-                <button class="btn btn-warning" title="Edit Siswa" id="id_btnEditSiswa_admFormListPendaftaran"><i class="fas fa-pen"></i></button>
             </td>
         </tr>
 
@@ -38,7 +39,6 @@
             <td>Ahmad</td>
             <td>
                 <button class="btn btn-primary" title="Lihat Detail"><i class="fas fa-eye"></i></button>
-                <button class="btn btn-warning" title="Edit Data"><i class="fas fa-pen"></i></button>
             </td>
         </tr>
 
@@ -47,7 +47,6 @@
             <td>Desi</td>
             <td>
                 <button class="btn btn-primary" title="Lihat Detail"><i class="fas fa-eye"></i></button>
-                <button class="btn btn-warning" title="Edit Data"><i class="fas fa-pen"></i></button>
             </td>
         </tr> -->
 

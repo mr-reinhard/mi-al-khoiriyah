@@ -33,25 +33,6 @@ function ajaxHttpRequest(mainForm, trigger, urlForm){
 }
 
 
-/*
-
-Parameter List:
-
-- mainFormId
-- childFormId
-- urlBackend
-- titleBefore
-- textBefore
-- iconBefore
-- confirmBtnText
-- cancelBtnText
-- logoAfter
-- judulAfter
-- urlFormToShow
-- showForm
-
-*/
-
 // save data yang tipenya multipart/form data
 // tanpa serialize()
 function saveData_nonSerialize(mainFormId,
@@ -430,9 +411,339 @@ function openFormApprove(mainForm,idButton,urlBackend1,urlBackend2){
     })
 }
 
-// mainForm,
-// formId,
-// urlBackend
+//==================================================================================
+
+function openFormEdit(){
+
+
+}
+
+function updateDataSiswa(){
+
+}
+
+function getListDetailDokumen(tableBody,urlBackend){
+
+    $.ajax({
+        url:urlBackend,
+        type:'POST',
+        success:function(data){
+            //console.log(data)
+
+            var tbody = $(tableBody)
+
+            tbody.empty()
+
+            $.each(data, function(index, row){
+
+                var tr = $('<tr></tr>');
+
+                var tdElementNumber = $('<td></td>').text(index + 1)
+                tr.append(tdElementNumber)
+
+                var tdNamaSiswa = $('<td></td>').text(row.namaSiswa)
+                tr.append(tdNamaSiswa)
+
+                var btnLihatDetailDokumen = $('<button class="btn btn-primary me-1" id="id_btnDetailDokumen_formPendaftaranLihat" name="user_btnPrintPembayaran" value="'+row.idSiswa+'"><i class="fas fa-eye"></i></button>')
+                var btnEditSiswa = $('<button class="btn btn-warning" id="" name="user_btnPrintPembayaran" value="'+row.idRegister+'"><i class="fas fa-pen"></i></button>')
+                var tdAppendElement = $('<td></td>').append(btnLihatDetailDokumen,btnEditSiswa)
+                tr.append(tdAppendElement)
+
+                tbody.append(tr)
+
+            })
+
+        },
+        error:function(xhr,status,error){
+            console.log('AJAX Error',status,error)
+            console.log('Response Text',xhr.responseText)
+            console.log('Status',xhr.status)
+        }
+    })
+
+}
+
+function getListRiwayatPembayaran(urlBackend,tableBody){
+
+    $.ajax({
+        url:urlBackend,
+        type:'POST',
+        success:function(data){
+            //console.log(data)
+
+            var tbody = $(tableBody)
+
+            tbody.empty()
+
+            $.each(data, function(index, row){
+
+                var tr = $('<tr></tr>');
+
+                var tdElementNumber = $('<td></td>').text(index + 1)
+                tr.append(tdElementNumber)
+
+                var tdNamaSiswa = $('<td></td>').text(row.namaSiswa)
+                tr.append(tdNamaSiswa)
+
+                var tdStatusBayar = $('<td></td>').text(row.approval_name)
+                tr.append(tdStatusBayar)
+
+                tbody.append(tr)
+
+            })
+        },
+        error:function(xhr,status,error){
+            console.log('AJAX Error',status,error)
+            console.log('Response Text',xhr.responseText)
+            console.log('Status',xhr.status)
+        }
+    })
+}
+
+function getListPrintDokumen(urlBackend,tableBody){
+
+    $.ajax({
+        url:urlBackend,
+        type:'POST',
+        success:function(data){
+            //console.log(data)
+
+            var tbody = $(tableBody)
+
+            tbody.empty()
+
+            $.each(data, function(index, row){
+
+                var tr = $('<tr></tr>');
+
+                var tdElementNumber = $('<td></td>').text(index + 1)
+                tr.append(tdElementNumber)
+
+                var tdNamaSiswa = $('<td></td>').text(row.namaSiswa)
+                tr.append(tdNamaSiswa)
+
+                var btnPrintDokumen = $('<button class="btn btn-primary" id="" name="name_btnPrintDokumen_adminFormListPrint" value="'+row.id_register+'"><i class="fas fa-print"></i></button>')
+                var tdButtonKonfirmasiPembayaran = $('<td></td>').append(btnPrintDokumen)
+                tr.append(tdButtonKonfirmasiPembayaran)
+
+                tbody.append(tr)
+
+            })
+        },
+        error:function(xhr,status,error){
+            console.log('AJAX Error',status,error)
+            console.log('Response Text',xhr.responseText)
+            console.log('Status',xhr.status)
+        }
+    })
+}
+
+function logoutAkun(buttonMenu,titleBefore,textBefore,iconBefore,cancelButton,confirmButton,urlBackend){
+
+    $(buttonMenu).click(function(){
+
+        Swal.fire({
+            title:titleBefore,
+            text:textBefore,
+            icon:iconBefore,
+            showCancelButton:true,
+            cancelButtonText:cancelButton,
+            confirmButtonColor:"#3085D6",
+            cancelButtonColor:"#D33",
+            confirmButtonText:confirmButton
+        }).then((result) => {
+        
+            if (result.isConfirmed) {
+        
+                if (navigator.onLine) {
+                    
+                    // request ke backend
+                    $.ajax({
+                        url:urlBackend,
+                        type:'POST',
+                        success:function(data){
+                            
+                            // alihkan form ketika ajax sukses
+                            window.location.href = "../../../index.html";
+                            //console.log(data.Pesan)
+
+                        },
+                        error:function(xhr,status,error){
+                            console.error('AJAX Error:', status, error);
+                            console.error('Response Text:', xhr.responseText);
+                            console.error('Status:', xhr.status);
+                        }
+
+                    })
+
+                }
+        
+            }
+        
+        })
+
+    })
+}
+
+function infoBerhasil(urlBackend,elementId){
+
+    $.ajax({
+        url:urlBackend,
+        type:'POST',
+        success:function(data){
+            //console.log(data[0].totalBerhasil)
+            $(elementId).text(data[0].totalBerhasil)
+        },
+        error:function(xhr,status,error){
+            console.log('Ajax Error',status,error)
+            console.log('Response Text',xhr.responseText)
+            console.log('Status',xhr.status)
+        }
+    })
+}
+
+function infoMenunggu(urlBackend,elementId){
+    $.ajax({
+        url:urlBackend,
+        type:'POST',
+        success:function(data){
+            //console.log(data.totalMenunggu)
+            $(elementId).text(data[0].totalMenunggu)
+        },
+        error:function(xhr,status,error){
+            console.log('Ajax Error',status,error)
+            console.log('Response Text',xhr.responseText)
+            console.log('Status',xhr.status)
+        }
+    })
+}
+
+function infoDibatalkan(urlBackend,elementId){
+    $.ajax({
+        url:urlBackend,
+        type:'POST',
+        success:function(data){
+            $(elementId).text(data[0].totalDibatalkan)
+        },
+        error:function(xhr,status,error){
+            console.log('Ajax Error',status,error)
+            console.log('Response Text',xhr.responseText)
+            console.log('Status',xhr.status)
+        }
+    })
+}
+
+function cariRiwayat(mainForm,searchElement,urlBackend,tableBody){
+
+    $(mainForm).on("keyup",searchElement,function(){
+         
+        var fieldCari = $(this).val();
+
+        $.ajax({
+            url:urlBackend,
+            type:'POST',
+            data:{
+                namaSiswa:fieldCari
+            },
+            success:function(data){
+
+                var tbody = $(tableBody)
+
+                tbody.empty()
+    
+                $.each(data, function(index, row){
+    
+                    var tr = $('<tr></tr>');
+    
+                    var tdElementNumber = $('<td></td>').text(index + 1)
+                    tr.append(tdElementNumber)
+    
+                    var tdNamaSiswa = $('<td></td>').text(row.namaSiswa)
+                    tr.append(tdNamaSiswa)
+    
+                    var tdStatusBayar = $('<td></td>').text(row.approval_name)
+                    tr.append(tdStatusBayar)
+    
+                    tbody.append(tr)
+    
+                })
+            },
+            error:function(xhr,status,error){
+                console.log('Ajax Error',status,error)
+                console.log('Response Text',xhr.responseText)
+                console.log('Status',xhr.status)
+            }
+
+        })
+    })
+}
+
+function bukaFormDetailDokumen(mainFormId,idButton,urlBackend1,urlBackend2,tableBody){
+
+    $(mainFormId).on("click",idButton,function(){
+
+        var nilaiTombol = $(this).attr("value");
+
+        $.ajax({
+            url:urlBackend1,
+            method:'POST',
+            data:{
+                idSis:nilaiTombol
+            },
+            success:function(data){
+                console.log(data[0].id_siswa)
+                $.ajax({
+                    url:urlBackend2,
+                    method:'POST',
+                    success:function(response){
+                        $("#mainContentAdmin").html(response)
+                        // $("#id_idRegisterSiswa_userFormPembayaran").val(data[0].idRegister)
+                        // $("#id_idSiswa_userFormPembayaran").val(data[0].idSiswa)
+                        var tbody = $(tableBody)
+
+                        tbody.empty()
+            
+                        $.each(data, function(index, row){
+            
+                            var tr = $('<tr></tr>');
+            
+                            var tdElementNumber = $('<td></td>').text(index + 1)
+                            tr.append(tdElementNumber)
+            
+                            var hrefNamaUrlDokumen = $('<a href="../../../asset/upload/'+row.doc_name+'">'+row.doc_name+'</a>')
+                            var tdNamaDokumen = $('<td></td>').append(hrefNamaUrlDokumen)
+                            tr.append(tdNamaDokumen)
+            
+                            tbody.append(tr)
+            
+                        })
+                    },
+                    error:function(xhr,status,error){
+                        console.log('Call Form Error',status,error)
+                        console.log('Response Text',xhr.responseText)
+                        console.log('Status',xhr.status)
+                    }
+                })
+            },
+            error:function(xhr,status,error){
+                console.log('AJAX Error',status,error)
+                console.log('Response Text',xhr.responseText)
+                console.log('Status',xhr.status)
+            }
+        })
+    })
+
+}
+
+bukaFormDetailDokumen("#mainContentAdmin",
+    "#id_btnDetailDokumen_formPendaftaranLihat",
+    "../../controller/php/pendaftaran_controller.php?aksi=fetchDokumen_ById",
+    "pendaftaran/detail_siswa.html",
+    "#id_tBodydetailDokumenSiswa_formPendaftaran_detailSiswa")
+
+cariRiwayat("#mainContentAdmin","#id_searchNamaSiswa_formListRiwayatPembayaran","../../controller/php/pendaftaran_controller.php?aksi=fetchRiwayatPembayaran_byName_byStatus","#id_tableBody_modulListRiwayatPembayaran")
+
+logoutAkun("#id_menuLogout_adminMenuLogout","Logout ?","Semua data sudah disimpan.","question","Batal","Ya, Logout","../../controller/php/pendaftaran_controller.php?aksi=logoutAkun")
 
 saveData("#mainContentAdmin",
     "#id_formApprovePembayaran_adminFormPembayaran",
@@ -444,49 +755,6 @@ openFormApprove("#mainContentAdmin",
     "pembayaran/form_approve.html")
 
 
-//testSave("#mainContentAdmin","#id_adminFormRegisterSiswa")
-
-//saveData("#mainContentAdmin","#id_adminFormRegisterSiswa","../../controller/php/pendaftaran_controller.php?aksi=simpanDataSiswa")
-
-
-
-// mainContentAdmin
-// id_adminFormRegisterSiswa
-// idDiv_sectionBayarNonTunai
-// id_admFormRegisSiswa_pilihTipePembayaran
-// hide and show nama bank dan upload buti transfer
-
-
-    
-    //fetchDropDown("#id_adminFormRegisterSiswa","#id_admFormRegisSiswa_pilihTipePembayaran","id_tipe_bayar","tipe_bayar","-- Pilih tipe bayar --","../../controller/php/admin_controller.php?aksi=fetchTipePembayaran");
-
-
-
-
-//switchPembayaran("#mainContentAdmin","#id_admFormRegisSiswa_pilihTipePembayaran");
-
-// dropdown tipe pembayaran
-
-
-// dropdown bank
-//fetchDropDown("#id_adminFormRegisterSiswa","#id_admFormRegisSiswa_pilihNamaBank","id_bank","nama_bank","-- Pilih nama bank --","../../controller/php/admin_controller.php?aksi=fetchNamaBank");
-
-
-// dropdown nama bank
-//fetchDropDown("#id_adminFormRegisterSiswa","#id_admFormRegisSiswa_pilihNamaBank","id_bank","nama_bank","-- Pilih nama bank --","../../controller/php/admin_controller.php?aksi=fetchNamaBank");
-
-// mainFormId,
-//     childFormId,
-//     titleBefore,
-//     textBefore,
-//     iconBefore,
-//     cancelBtn,
-//     confirmBtn,
-//     urlBackend,
-//     urlFormToShow,
-//     showForm,iconAfter,
-//     judulAfter
-
 saveData_nonSerialize("#mainContentAdmin",
     "#id_adminFormRegisterSiswa",
     "Register siswa","Apakah data sudah benar ?","question",
@@ -494,42 +762,4 @@ saveData_nonSerialize("#mainContentAdmin",
     "../../controller/php/pendaftaran_controller.php?aksi=admin_simpanDataSiswa",
     "pendaftaran/siswa_register.html","#mainContentAdmin"
 )
-
-// saveData_nonSerialize("#mainContentAdmin",
-//     "#id_adminFormRegisterSiswa",
-//     "../../controller/php/pendaftaran_controller.php?aksi=simpanDataSiswa",
-//     "Register Siswa",
-//     "Apakah data sudah benar?",
-//     "question",
-//     "Ya, Simpan",
-//     "Batal",
-//     "success",
-//     "Registrasi Berhasil",
-//     "../../admin/siswa/siswa_register.html",
-//     "#mainContentAdmin");
-
-//liveSearchAjax("#mainContentAdmin","#id_inputNamaSiswa","../../controller/php/admin_controller.php?aksi=simpanDataSiswa");
-
-
-
-/*
-
-1- mainFormId
-2- childFormId
-3- urlBackend
-4- titleBefore
-5- textBefore
-6- iconBefore
-7- confirmBtnText
-8- cancelBtnText
-9- logoAfter
-10- judulAfter
-11- urlFormToShow
-12- showForm
-
-*/
-
-
-
-//uploadFile("#mainContentAdmin","#idForm_siswaRegister","../../controller/php/admin_controller.php?aksi=simpanDataSiswa");
 
