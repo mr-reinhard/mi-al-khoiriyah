@@ -40,8 +40,8 @@ $(mainForm).on("click", triggerModal, function(){
 
 //callFormAuto("pembayaran/list_pendaftaran.html","#mainContentAdmin");
 //callFormAuto("pembayaran/form_approve.html","#mainContentAdmin");
-//callFormAuto("dashboard/info.html","#mainContentAdmin");
-callFormAuto("pendaftaran/list_pendaftaran.html","#mainContentAdmin");
+callFormAuto("dashboard/info.html","#mainContentAdmin");
+//callFormAuto("pendaftaran/list_pendaftaran.html","#mainContentAdmin");
 
 //callFormAuto("riwayat/list_riwayat.html","#mainContentAdmin");
 
