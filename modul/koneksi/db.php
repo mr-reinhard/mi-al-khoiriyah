@@ -1,5 +1,5 @@
 <?php
- //koneksi ke database danau indah utama
+ //koneksi ke database MI Al-Khoiriyah
  $server = "localhost";
  $user = "root";
  $pass = "";
